@@ -1,0 +1,13 @@
+Index: app/views/issues/show.rhtml
+===================================================================
+--- app/views/issues/show.rhtml	(revision 2282)
++++ app/views/issues/show.rhtml	(working copy)
+@@ -69,6 +69,8 @@
+ 
+ <%= link_to_attachments @issue %>
+ 
++<%= call_hook(:view_issues_show_desc_bottom, :issue => @issue) %>
++
+ <% if authorize_for('issue_relations', 'new') || @issue.relations.any? %>
+ <hr />
+ <div id="relations">

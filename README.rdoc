@@ -1,3 +1,19 @@
-= backtrace
+= Resources Plugin for Redmine
 
-Description goes here
+== Description
+The Resources plugin is a plugin for Redmine[http://www.redmine.org] which allows links to resources to be added to an issue. For the purposes of this plugin, a resource is any external site that is useful for the understanding or completion of an issue.
+
+The plugin allows resources to be added, deleted and viewed, and adds Redmine role-based permissions for all three.
+
+== Requirements
+* This plugin was developed for Redmine v0.8.
+* The plugin requires +Redmine::Hook::ViewListener.render_on+ to be defined. This method was added to the Redmine trunk in r2429[http://www.redmine.org/repositories/revision/redmine/2429].
+* The plugin makes use of a custom view hook called +view_issues_show_desc_bottom+. I have requested for this hook to be made official in Redmine, but until that happens, a patch is available to add it. The patch can be found in extra/issues_show_desc_bottom_hook.diff
+
+== Installation
+1. Make sure Redmine is installed as per the requirements listed above.
+2. Install the plugin to vendor/plugins/redmine_resources.
+3. Follow the Redmine plugin instructions[http://www.redmine.org/wiki/redmine/Plugins]. As this plugin uses migrations, ensure that +rake db:migrate_plugins+ is run as part of installation. 
+4. Login to your Redmine as an Administrator.
+5. Setup the Resources role permissions.
+6. Enable the plugin for the desired Redmine projects in the respective projects' Settings -> Modules page.
