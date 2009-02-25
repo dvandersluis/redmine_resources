@@ -1,0 +1,18 @@
+<%= error_messages_for :resource %>
+
+<table>
+  <tr>
+    <td><%= l(:label_resource) %>:</td>
+    <td><%= f.text_field :resource, :size => 50 %></td>
+  </tr>
+  <tr>
+    <td><%= l(:label_desc) %>:</td>
+    <td><%= f.text_field :description, :size => 50 %></td>
+  <tr>
+  <tr>
+    <td colspan="2">
+      <%= submit_tag l(:button_add) %>
+      <%= toggle_link l(:button_cancel), 'new-resource-form'%>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,31 @@
+<% if issue.resources.any? %>
+  <div class="wiki">
+    <ul>
+      <table style="width: 100%; border: 0; margin-bottom: 0;">
+        <% issue.resources.each do |resource| %>
+          <tr>
+            <td style="border: 0; padding: 0;">
+              <li>
+                <%= link_to( (resource.description || resource.resource), resource.resource, {:class => 'external'} ) %>
+              </li>
+            </td>
+            <% if authorize_for('issue_resources', 'destroy') %>
+              <td style="border: 0; padding: 0;">
+                <%= link_to_remote(image_tag('delete.png'), {
+                  :url => {
+                    :controller => 'issue_resources',
+                    :action => 'destroy',
+                    :issue_id => issue,
+                    :id => resource,
+                    :only_path => true
+                  },
+                  :method => :post})
+                %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </ul>
+  </div>
+<% end %>
