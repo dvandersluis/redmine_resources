@@ -9,7 +9,7 @@ class IssueResourcesController < ApplicationController
       format.html { redirect_to :controller => 'issues', :action => 'show', :id => @issue }
       format.js do
         render :update do |page|
-          page.replace_html "resources", :partial => 'issue_resources/resources', :locals => {:issue => @issue}
+          page.replace_html "resources", :partial => 'issues/resources', :locals => {:issue => @issue, :project => @project}
           if @resource.errors.empty?
             page << "$('resource_resource').value = ''"
             page << "$('resource_description').value = ''"
@@ -27,7 +27,7 @@ class IssueResourcesController < ApplicationController
     end
     respond_to do |format|
       format.html { redirect_to :controller => 'issues', :action => 'show', :id => @issue }
-      format.js { render(:update) { |page| page.replace_html "resources", :partial => 'issue_resources/resources', :locals => {:issue => @issue} } }
+      format.js { render(:update) { |page| page.replace_html "resources", :partial => 'issues/resources', :locals => {:issue => @issue, :project => @project} } }
     end
   end
 
