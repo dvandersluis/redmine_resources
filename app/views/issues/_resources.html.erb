@@ -1,22 +1,19 @@
-<% current_user = User.current %>
-<% if project.module_enabled?('resources') and current_user.allowed_to?(:view_backtrace, project) %>
-  <div id="resources">
-    <hr />
+<div id="resources">
+  <hr />
 
-    <div class="contextual">
-    <% if authorize_for('issue_resources', 'new') %>
-        <%= toggle_link l(:button_add), 'new-resource-form' %>
-    <% end %>
-    </div>
-
-    <p><strong><%= l(:field_resources) %></strong></p>
-    <%= render :partial => 'issue_resources/list', :locals => {:issue => @issue} %>
-
-    <% remote_form_for(:resource, @resource, 
-         :url => {:controller => 'issue_resources', :action => 'new', :issue_id => @issue},
-         :method => :post,
-         :html => {:id => 'new-resource-form', :style => (@resource ? '' : 'display: none;')}) do |f| %>
-      <%= render :partial => 'issue_resources/form', :locals => {:f => f}%>
-    <% end %>
+  <div class="contextual">
+  <% if authorize_for('issue_resources', 'new') %>
+      <%= toggle_link l(:button_add), 'new-resource-form' %>
+  <% end %>
   </div>
-<% end %>
+
+  <p><strong><%= l(:field_resources) %></strong></p>
+  <%= render :partial => 'issue_resources/list', :locals => {:issue => @issue} %>
+
+  <% remote_form_for(:resource, @resource, 
+       :url => {:controller => 'issue_resources', :action => 'new', :issue_id => @issue},
+       :method => :post,
+       :html => {:id => 'new-resource-form', :style => (@resource ? '' : 'display: none;')}) do |f| %>
+    <%= render :partial => 'issue_resources/form', :locals => {:f => f}%>
+  <% end %>
+</div>
