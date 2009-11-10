@@ -11,6 +11,4 @@ module RedmineResources
    
     end
   end
-  
-  Issue.send(:include, IssuePatch)
 end
