@@ -26,7 +26,7 @@ module Redmine
 end
 
 class ShowIssueResourcesHook < Redmine::Hook::ViewListener
-  render_on :view_issues_show_desc_bottom, :partial => "issues/resources", :if => :has_permission? 
+  render_on :view_issues_show_description_bottom, :partial => "issues/resources", :if => :has_permission? 
 
 private
   def protect_against_forgery?
