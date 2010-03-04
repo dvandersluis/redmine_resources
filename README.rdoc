@@ -6,7 +6,7 @@ The Resources plugin is a plugin for Redmine[http://www.redmine.org] which allow
 The plugin allows resources to be added, deleted and viewed, and adds Redmine role-based permissions for all three.
 
 == Requirements
-* This plugin was developed for Redmine v0.9.
+* This plugin requires Redmine 0.8.x (min 0.8.3) or 0.9.x
 * The plugin requires +Redmine::Hook::ViewListener.render_on+ to be defined. This method was added to the Redmine trunk in r2429[http://www.redmine.org/repositories/revision/redmine/2429].
 * The plugin makes use of a view hook called +view_issues_show_description_bottom+. This hook was added in r2611[http://www.redmine.org/projects/1/repository/revisions/2611] and as part of 0.8.3.
 
