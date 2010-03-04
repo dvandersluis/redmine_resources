@@ -18,7 +18,7 @@ Redmine::Plugin.register :redmine_resources do
   name 'Issue Resources'
   author 'Daniel Vandersluis'
   description 'Allows links to resources to be attached to an issue'
-  version '0.1.2'
+  version '0.2.0'
 
   project_module :resources do |map|
     map.permission :view_resources, { }
